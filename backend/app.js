@@ -1,11 +1,16 @@
 const express = require("express");
+const helmet = require("helmet");
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 
 const app = express();
-
+app.use(helmet());
 mongoose
   .connect(
-    "mongodb+srv://Yannick:pNhXS19Y8326LHvi@cluster0.fkzmn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mongodb+srv://Yannick:" +
+      process.env.DB_PASSWORD +
+      "@cluster0.fkzmn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
