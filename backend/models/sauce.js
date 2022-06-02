@@ -12,7 +12,6 @@ const sauceShema = mongoose.Schema({
   heat: { type: Number, required: true },
   likes: { type: Number, required: true },
   dislikes: { type: Number, required: true },
-  //comment faire pour implanter un tableau d'user?
   usersLiked: { type: String, required: true },
   usersDisliked: { type: String, required: true },
 });
