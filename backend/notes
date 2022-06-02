@@ -2,11 +2,10 @@
 _réussir à se connecter 
 _implémenter routeurs
 _système de likes
+_vérifier règles sécurités
 _vérifier le site comme un utilisateur
 
-questions mentor:
-_erreur lors du login (CORS policy et protocole http incorrect)...
-_comment faire pour implémenter un tableaus "user" pour les likes dans "models/sauce"?
-_git.ignore sur le dossier images? (sécurité)
-_comment faire le systéme de likes? 
 
+questions mentor:
+_module "cors" avec des vulnérabilités? génant? 
+_comment faire le systéme de likes? 
