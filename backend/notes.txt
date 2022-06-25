@@ -5,6 +5,8 @@ _vérifier le site comme un utilisateur
 
 
 questions mentor:
+_pourquoi l'user se crée mais l'appli ne se connecte pas?
+_problème de port?
 
 
 // app.use((_req, res, next) => {
