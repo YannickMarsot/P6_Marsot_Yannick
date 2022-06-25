@@ -7,8 +7,7 @@ _vérifier le site comme un utilisateur
 questions mentor:
 _pourquoi l'user se crée mais l'appli ne se connecte pas?
 _problème de port?
-
-
+_faut t'il ce bout de code?
 // app.use((_req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
 //   res.setHeader(
