@@ -4,22 +4,21 @@ const User = require("../models/user");
 
 /*s'inscrire*/
 exports.signup = (req, res, next) => {
-  bcrypt
-    .hash(req.body.password, 10)
+  console.log("req.body:", req.body);
+  const user = new User({
+    email: req.body.email,
+    password: bcrypt.hash(req.body.password, 10, function (err, hash) {
+      // Store hash in your password DB.
+    }),
     /*on "hash" le mdp 10x afin de le sécuriser*/
-    .then((hash) => {
-      /*puis on crée un nouvel utilisateur avec l'email et le mdp "haché"*/
-      const user = new User({
-        email: req.body.email,
-        password: hash,
-      });
-      user
-        /*on sauvegarde l'utilisateur ou erreur*/
-        .save()
-        .then(() => res.status(201).json({ message: "Utilisateur créé!" }))
-        .catch((error) => res.status(400).json({ error }));
-    })
-    .catch((error) => res.status(500).json({ error }));
+    /*puis on crée un nouvel utilisateur avec l'email et le mdp "haché"*/
+  });
+  console.log(user);
+  user
+    /*on sauvegarde l'utilisateur ou erreur*/
+    .save()
+    .then(() => res.status(201).json({ message: "Utilisateur créé!" }))
+    .catch((error) => res.status(400).json({ error }));
 };
 
 /*se connecter*/
