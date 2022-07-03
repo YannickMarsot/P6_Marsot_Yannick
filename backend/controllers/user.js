@@ -5,15 +5,18 @@ const User = require("../models/user");
 /*s'inscrire*/
 exports.signup = (req, res, next) => {
   console.log("req.body:", req.body);
+  console.log("User:", User);
   const user = new User({
     email: req.body.email,
     password: bcrypt.hash(req.body.password, 10, function (err, hash) {
       // Store hash in your password DB.
+      //à l'intention de Pierre: Je n'ai pas compris ce que je suis censé écrire ici...
+      //le comentaire en anglais provient de la doc de bcrypt
     }),
     /*on "hash" le mdp 10x afin de le sécuriser*/
     /*puis on crée un nouvel utilisateur avec l'email et le mdp "haché"*/
   });
-  console.log(user);
+  console.log("new user:", user);
   user
     /*on sauvegarde l'utilisateur ou erreur*/
     .save()
