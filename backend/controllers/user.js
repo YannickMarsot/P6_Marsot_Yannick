@@ -5,10 +5,11 @@ const User = require("../models/user");
 /*s'inscrire*/
 exports.signup = (req, res, next) => {
   console.log("req.body:", req.body);
+  const response = res;
   bcrypt.hash(req.body.password, 10).then((res) => {
     if (!res) {
       console.log("pas de res");
-      //res.catch((error) => res.status(400).json({ error }));
+      response.catch((error) => res.status(400).json({ error }));
     } else {
       // console.log("il y'a une res");
       const user = new User({
@@ -18,8 +19,8 @@ exports.signup = (req, res, next) => {
       console.log("new user:", user);
       user
         .save()
-        .then(() => res.status(201).json({ message: "Utilisateur créé!" }))
-        .catch((error) => res.status(400).json({ error }));
+        .then(() => response.status(201).json({ message: "Utilisateur créé!" }))
+        .catch((error) => response.status(400).json({ error }));
     }
   });
 };
