@@ -16,7 +16,7 @@ mongoose
   .connect(
     "mongodb+srv://Yannick:" +
       process.env.DB_PASSWORD +
-      "@cluster0.fkzmn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      "@cluster1.gyrqzbi.mongodb.net/?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie!"))
