@@ -1,22 +1,9 @@
 à faire:
+_lancer le front
 _réussir à se connecter 
 _vérifier règles sécurités
 _vérifier le site comme un utilisateur
 
 
 questions mentor:
-_pourquoi l'user se crée mais l'appli ne se connecte pas?
-_problème de port?
-_faut t'il ce bout de code?
-// app.use((_req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-//   );
-//   next();
-// });
+_Pourquoi ça marche sur postman et pas sur le navigateur?
