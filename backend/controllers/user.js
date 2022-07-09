@@ -7,8 +7,10 @@ exports.signup = (req, res, next) => {
   console.log("req.body:", req.body);
   bcrypt.hash(req.body.password, 10).then((res) => {
     if (!res) {
-      res.catch((error) => res.status(400).json({ error }));
+      console.log("pas de res");
+      //res.catch((error) => res.status(400).json({ error }));
     } else {
+      // console.log("il y'a une res");
       const user = new User({
         email: req.body.email,
         password: res,
