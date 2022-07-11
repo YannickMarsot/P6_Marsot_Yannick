@@ -45,12 +45,12 @@ exports.login = (req, res, next) => {
           res.status(200).json({
             /*si valide creation d'un token pour les requêtes + connection*/
             userId: user._id,
-            token: jwt.sign({ userId: user._id }, RANDOM_TOKEN_SECRET, {
+            token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
               expiresIn: "24h",
             }),
           });
         })
-        .catch((error) => res.status(500).json({ error }));
+        .catch((error) => res.status(500).json(console.log(error)));
     })
-    .catch((error) => res.status(500).json({ error }));
+    .catch((error) => res.status(500).json(console.log(error)));
 };
