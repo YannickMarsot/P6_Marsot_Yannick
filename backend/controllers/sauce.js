@@ -6,7 +6,6 @@ exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
   delete sauceObject._userId;
-  //console.log(sauceObject);
   const sauce = new Sauce({
     ...sauceObject,
     userId: req.auth.userId,
@@ -116,7 +115,7 @@ exports.likeSauce = (req, res, next) => {
         $push: { usersLiked: userId },
       }
     )
-      .then((sauce) => res.status(200).json({ message: "Sauce appréciée" }))
+      .then(() => res.status(200).json({ message: "Sauce appréciée" }))
       .catch((error) => res.status(500).json({ error }));
   }
 
@@ -129,7 +128,7 @@ exports.likeSauce = (req, res, next) => {
         $push: { usersDisliked: userId },
       }
     )
-      .then((sauce) => res.status(200).json({ message: "Sauce dépréciée" }))
+      .then(() => res.status(200).json({ message: "Sauce dépréciée" }))
       .catch((error) => res.status(500).json({ error }));
   }
   // l'utilisateur veut changer son like
@@ -141,7 +140,7 @@ exports.likeSauce = (req, res, next) => {
             { _id: sauceId },
             { $pull: { usersLiked: userId }, $inc: { likes: -1 } }
           )
-            .then((sauce) => {
+            .then(() => {
               res.status(200).json({ message: "Sauce dépréciée" });
             })
             .catch((error) => res.status(500).json({ error }));
@@ -154,7 +153,7 @@ exports.likeSauce = (req, res, next) => {
               $inc: { dislikes: -1 },
             }
           )
-            .then((sauce) => {
+            .then(() => {
               res.status(200).json({ message: "Sauce appréciée" });
             })
             .catch((error) => res.status(500).json({ error }));
