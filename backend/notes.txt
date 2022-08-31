@@ -1,7 +1,7 @@
 à faire:
 _vérifier règles sécurités
 _vérifier le site comme un utilisateur
-
+_pouvoir mettre plusieurs sauces avec un compte
 
 questions mentor:
 _Pourquoi je n'arrive pas à afficher une seule sauce? 
