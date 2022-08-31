@@ -5,10 +5,10 @@ exports.createSauce = (req, res, next) => {
   //créer une nouvelle sauce
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
-  delete sauceObject._userId;
+  //delete sauceObject._userId;
   const sauce = new Sauce({
     ...sauceObject,
-    userId: req.auth.userId,
+    //userId: req.auth.userId,
     likes: 0,
     dislikes: 0,
     userDisliked: [],
