@@ -4,19 +4,15 @@ const User = require("../models/user");
 
 /*s'inscrire*/
 exports.signup = (req, res, next) => {
-  console.log("req.body:", req.body);
   const response = res;
   bcrypt.hash(req.body.password, 10).then((res) => {
     if (!res) {
-      console.log("pas de res");
       response.catch((error) => res.status(400).json({ error }));
     } else {
-      // console.log("il y'a une res");
       const user = new User({
         email: req.body.email,
         password: res,
       });
-      console.log("new user:", user);
       user
         .save()
         .then(() => response.status(201).json({ message: "Utilisateur créé!" }))
